@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<style>
+    * {
+        padding: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 1%;
+        text-align: center;
+    }
+    input[type="text"] {
+        width: 500px; /* Adjust this value as needed */
+    }
+    {% block style %}
+    {% endblock style %}
+</style>
+<body>
+    <nav>
+        <form action="/search/" method="get">
+            <input type="text" name="q" placeholder="ID? ">
+            <button type="submit">Search</button>
+        </form>
+        <br>
+        ▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️▪️
+    </nav>
+    <main> 
+        {% block content %}
+        {% endblock content %}
+    </main>
+    <footer>
+        🔚👀
+    </footer>
+</body>
+</html>

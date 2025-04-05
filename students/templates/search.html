@@ -1,0 +1,14 @@
+{% extends "menu.html" %}
+
+{% block title %}
+Searched🔍
+{% endblock title %}
+{% block content %}
+{% if results %}
+    {% for student in results %}
+      ID: {{ student.id }} - Name: {{ student.firstname }} {{ student.lastname }}
+    {% endfor %}
+{% else %}
+    No students matched your search.
+{% endif %}
+{% endblock content %}
