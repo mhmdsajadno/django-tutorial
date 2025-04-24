@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Home 
+{% endblock %}
+
+{% block content %}
+<ul>
+    {% for book in books %}
+    {% if book.price is not None %}
+        <li class="book-item">
+            <h3>{{ book.name }}</h3>
+            <p><strong>Published Date:</strong> {{ book.published_date }}</p>
+            <p><strong>Price:</strong> {{ book.price }}</p>
+            <p><strong>Publishers:</strong></p>
+            <ul>
+                {% for publisher in book.publisher.all %}
+                    <li>{{ publisher.name }}</li>
+                {% empty %}
+                    <li>No publishers available.</li>
+                {% endfor %}
+            </ul>
+            <p><strong>Summary:</strong> {{ book.summary }}</p>
+            <h3>Authors:</h3>
+            <ul>
+                {% for book_author in book.book_authors.all %}
+                    <li>{{ book_author.author.name }}</li>
+                {% empty %}
+                    <li>No authors available for this book.</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endif %}
+    {% empty %}
+        <li>No books available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
